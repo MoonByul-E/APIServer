@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LostArk API</title>
+    <style>
+        table.type02 {
+            border-collapse: separate;
+            border-spacing: 0;
+            text-align: center;
+            line-height: 1.5;
+            border-top: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+            margin : 20px 10px;
+            width: 99%;
+        }
+
+        table.type02 th {
+            width: 150px;
+            padding: 10px;
+            font-weight: bold;
+            vertical-align: top;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-top: 1px solid #fff;
+            border-left: 1px solid #fff;
+            background: #eee;
+        }
+
+        table.type02 td {
+            width: 350px;
+            padding: 10px;
+            vertical-align: center;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+
+        ol {list-style:none;}
+
+        a { text-decoration: none; color: blue; }
+        a:visited { text-decoration: none; }
+        a:hover { text-decoration: none; }
+        a:focus { text-decoration: none; }
+        a:hover, a:active { text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>LostArk API</h1><br>
+
+    <ol>
+        <a href="#Character"><span>1</span>. Character</a>
+        <ol>
+            <a href="#Character-Another"><li><span>1.1</span>. Character Another</li></a>
+            <a href="#Character-Data"><li><span>1.2</span>. Character Data</li></a>
+            <a href="#Character-Item"><li><span>1.3</span>. Character Item</li></a>
+            <a href="#Character-Avatar"><li><span>1.4</span>. Character Avatar</li></a>
+            <a href="#Character-Jewel"><li><span>1.5</span>. Character Jewel</li></a>
+            <a href="#Character-Card"><li><span>1.6</span>. Character Card</li></a>
+            <a href="#Character-Skill"><li><span>1.7</span>. Character Skill</li></a>
+            <a href="#Character-Life"><li><span>1.8</span>. Character Life</li></a>
+        </ol>
+        <a href="#Avatar"><li><span>2</span>. Avatar</a>
+            <ol>
+                <a href="#Avatar-Simulator"><li><span>2.1</span>. Avatar Simulator</li></a>
+                <a href="#Avatar-Probability"><li><span>2.2</span>. Avatar Probability</li></a>
+            </ol>
+        </li><br>
+    </ol>
+    
+    <h2><a href="#Character" id="Character"><span>1</span>. Character</a></h2>
+    <ol>
+        <li><h3><a href="#Character-Another" id = "Character-Another"><span>1.1</span>. Character Another</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>Character Another</td>
+                <td><a href="/LostArk/Character/Character-Another" id="Character-Another">/Character-Another</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td><strong>NickName</strong></td>
+                            <td>String</td>
+                            <td>X</td>
+                            <td>O</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Server</strong></td>
+                            <td>SERVER NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Name</strong></td>
+                            <td>CHARACTER NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lv</strong></td>
+                            <td>CHARACTER LEVEL</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+
+        <li><h3><a href="#Character-Data" id = "Character-Data"><span>1.2</span>. Character Data</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>Character Data</td>
+                <td><a href="/LostArk/Character/Character-Data" id="Character-Data">/Character-Data</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td><strong>NickName</strong></td>
+                            <td>String</td>
+                            <td>X</td>
+                            <td>O</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Info</strong></td>
+                            <td>CHARACTER INFO</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+
+        <li><h3><a href="#Character-Item" id = "Character-Item"><span>1.3</span>. Character Item</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>Character Item</td>
+                <td><a href="/LostArk/Character/Character-Item" id="Character-Item">/Character-Item</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td><strong>NickName</strong></td>
+                            <td>String</td>
+                            <td>X</td>
+                            <td>O</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Items</strong></td>
+                            <td>CHARACTER ITEMS</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+
+        <li><h3><a href="#Character-Avatar" id = "Character-Avatar"><span>1.4</span>. Character Avatar</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>Character Avatar</td>
+                <td><a href="/LostArk/Character/Character-Avatar" id="Character-Avatar">/Character-Avatar</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td><strong>NickName</strong></td>
+                            <td>String</td>
+                            <td>X</td>
+                            <td>O</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Avatars</strong></td>
+                            <td>CHARACTER EQUIP AVATAR</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+        
+        <li><h3><a href="#Character-Jewel" id = "Character-Jewel"><span>1.5</span>. Character Jewel</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>Character Jewel</td>
+                <td><a href="/LostArk/Character/Character-Jewel" id="Character-Jewel">/Character-Jewel</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td><strong>NickName</strong></td>
+                            <td>String</td>
+                            <td>X</td>
+                            <td>O</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jewel</strong></td>
+                            <td>CHARACTER EQUIP JEWEL</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+
+        <li><h3><a href="#Character-Card" id = "Character-Card"><span>1.6</span>. Character Card</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>Character Jewel</td>
+                <td><a href="/LostArk/Character/Character-Card" id="Character-Card">/Character-Card</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td><strong>NickName</strong></td>
+                            <td>String</td>
+                            <td>X</td>
+                            <td>O</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Card</strong></td>
+                            <td>CHARACTER EQUIP CARD</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+
+        <li><h3><a href="#Character-Skill" id = "Character-Skill"><span>1.7</span>. Character Skill</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>Character Skill</td>
+                <td><a href="/LostArk/Character/Character-Skill" id="Character-Skill">/Character-Skill</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td><strong>NickName</strong></td>
+                            <td>String</td>
+                            <td>X</td>
+                            <td>O</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Skill</strong></td>
+                            <td>CHARACTER SKILL</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+
+        <li><h3><a href="#Character-Life" id = "Character-Life"><span>1.8</span>. Character Life</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>Character Life</td>
+                <td><a href="/LostArk/Character/Character-Life" id="Character-Life">/Character-Life</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td><strong>NickName</strong></td>
+                            <td>String</td>
+                            <td>X</td>
+                            <td>O</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Life</strong></td>
+                            <td>CHARACTER LIFE SKILL</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+    </ol>
+    <h2><a href="#Avatar" id="Avatar"><span>2</span>. Avatar</a></h2>
+    <table class="type02">
+        <th>API Name</th>
+        <th>API Url</th>
+        <th>API Parameters</th>
+        <th>API Result</th>
+        <tr>
+            <td>Avatar Simulator</td>
+            <td><a href="/LostArk/Avatar/Avatar-Simulator" id="Avatar-Simulator">/Avatar-Simulator</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td><strong>Avatar_Type</strong></td>
+                        <td>String<br>(Jump, Promise)</td>
+                        <td>Jump</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Class_Type</strong></td>
+                        <td>String<br>(<a href="#Avatar-Class-Type">Link</a>)</td>
+                        <td>Warlord</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Parts_Type</strong></td>
+                        <td>String<br>(Weapon, Head, Top, Bottom)</td>
+                        <td>Weapon</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Avatar_Name</strong></td>
+                        <td>AVATAR NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Avatar_Probability</strong></td>
+                        <td>AVATAR Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Avatar Probability</td>
+            <td><a href="/LostArk/Avatar/Avatar-Probability" id="Avatar-Probability">/Avatar-Probability</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td><strong>Avatar_Type</strong></td>
+                        <td>String<br>(Jump, Promise)</td>
+                        <td>Jump</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Class_Type</strong></td>
+                        <td>String<br>(<a href="#Avatar-Class-Type">Link</a>)</td>
+                        <td>Warlord</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Parts_Type</strong></td>
+                        <td>String<br>(Weapon, Head, Top, Bottom)</td>
+                        <td>Weapon</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Avatar_Name</strong></td>
+                        <td>AVATAR NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Avatar_Probability</strong></td>
+                        <td>AVATAR Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table><br>
+</body>
+</html>

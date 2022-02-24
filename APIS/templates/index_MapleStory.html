@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapleStory API</title>
+    <style>
+        table.type02 {
+            border-collapse: separate;
+            border-spacing: 0;
+            text-align: center;
+            line-height: 1.5;
+            border-top: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+            margin : 20px 10px;
+            width: 99%;
+        }
+
+        table.type02 th {
+            width: 150px;
+            padding: 10px;
+            font-weight: bold;
+            vertical-align: top;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-top: 1px solid #fff;
+            border-left: 1px solid #fff;
+            background: #eee;
+        }
+
+        table.type02 td {
+            width: 350px;
+            padding: 10px;
+            vertical-align: center;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+
+        ol {list-style:none;}
+
+        a { text-decoration: none; color: blue; }
+        a:visited { text-decoration: none; }
+        a:hover { text-decoration: none; }
+        a:focus { text-decoration: none; }
+        a:hover, a:active { text-decoration: none; }
+    </style>
+</head>
+<body style="overflow-x: hidden">
+    <h1>MapleStory API</h1><br>
+
+    <ol>
+        <a href="#StarForce"><li><span>1</span>. StarForce</a>
+            <ol>
+                <a href="#StarForce-Simulator"><li><span>1.1</span>. StarForce Simulator</li></a>
+                <a href="#StarForce-Price"><li><span>1.2</span>. StarForce Price</li></a>
+                <a href="#StarForce-Probability"><li><span>1.3</span>. StarForce Probability</li></a>
+            </ol>
+        </li><br>
+
+        <a href="#RoyalStyle"><li><span>2</span>. RoyalStyle</a>
+            <ol>
+                <a href="#RoyalStyle-Simulator"><li><span>2.1</span>. RoyalStyle Simulator</li></a>
+                <a href="#RoyalStyle-Probability"><li><span>2.2</span>. RoyalStyle Probability</li></a>
+            </ol>
+        </li><br>
+
+        <a href="#MasterPiece"><li><span>3</span>. MasterPiece</a>
+            <ol>
+                <a href="#MasterPiece-Simulator"><li><span>3.1</span>. MasterPiece Simulator</li></a>
+                <a href="#MasterPiece-Probability"><li><span>3.2</span>. MasterPiece Probability</li></a>
+            </ol>
+        </li><br>
+        
+        <a href="#Beauty"><li><span>4</span>. Beauty</a>
+            <ol>
+                <a href="#RoyalHair"><li><span>4.1</span>. RoyalHair</li></a>
+                <ol>
+                    <a href="#RoyalHair-Simulator"><li><span>4.1.1</span>. RoyalHair Simulator</li></a>
+                    <a href="#RoyalHair-Probability"><li><span>4.1.2</span>. RoyalHair Probability</li></a>
+                </ol><br>
+                <a href="#RoyalPlasticSurgery"><li><span>4.2</span>. RoyalPlasticSurgery</li></a>
+                <ol>
+                    <a href="#RoyalPlasticSurgery-Simulator"><li><span>4.2.1</span>. RoyalPlasticSurgery Simulator</li></a>
+                    <a href="#RoyalPlasticSurgery-Probability"><li><span>4.2.2</span>. RoyalPlasticSurgery Probability</li></a>
+                </ol>
+            </ol>
+        </li><br>
+
+        <a href="#GoldApple"><li><span>5</span>. GoldApple</a>
+            <ol>
+                <a href="#GoldApple-Simulator"><li><span>5.1</span>. GoldApple Simulator</li></a>
+                <a href="#GoldApple-Probability"><li><span>5.2</span>. GoldApple Probability</li></a>
+            </ol>
+        </li><br>
+
+        <a href="#WispsWonderBerry"><li><span>6</span>. WispsWonderBerry</a>
+            <ol>
+                <a href="#WispsWonderBerry-Simulator"><li><span>6.1</span>. WispsWonderBerry Simulator</li></a>
+                <a href="#WispsWonderBerry-Probability"><li><span>6.2</span>. WispsWonderBerry Probability</li></a>
+            </ol>
+        </li><br>
+
+        <a href="#LunaCrystal"><li><span>7</span>. LunaCrystal</a>
+            <ol>
+                <a href="#LunaCrystal-Simulator"><li><span>7.1</span>. LunaCrystal Simulator</li></a>
+                <a href="#LunaCrystal-Probability"><li><span>7.2</span>. LunaCrystal Probability</li></a>
+            </ol>
+        </li><br>
+
+        <a href="#Cube"><li><span>8</span>. Cube</a>
+            <ol>
+                <a href="#Cube-Simulator"><li><span>8.1</span>. Cube Simulator</li></a>
+                <a href="#Cube-Probability"><li><span>8.3</span>. Cube Probability</li></a>
+                <a href="#Cube-Item-Type"><li><span>8.2</span>. Cube Item Type</li></a>
+            </ol>
+        </li><br>
+
+        <a href="#TheSeed"><li><span>9</span>. TheSeed</a>
+            <ol>
+                <a href="#AliciaRingBox"><li><span>9.1</span>. AliciaRingBox</li></a>
+                <ol>
+                    <a href="#AliciaRingBox-Simulator"><li><span>9.1.1</span>. AliciaRingBox Simulator</li></a>
+                    <a href="#AliciaRingBox-Probability"><li><span>9.1.2</span>. AliciaRingBox Probability</li></a>
+                </ol><br>
+
+                <a href="#HideRingBox"><li><span>9.2</span>. HideRingBox</li></a>
+                <ol>
+                    <a href="#HideRingBox-Simulator"><li><span>9.2.1</span>. HideRingBox Simulator</li></a>
+                    <a href="#HideRingBox-Probability"><li><span>9.2.2</span>. HideRingBox Probability</li></a>
+                </ol><br>
+
+                <a href="#ShineRingBox"><li><span>9.3</span>. ShineRingBox</li></a>
+                <ol>
+                    <a href="#ShineRingBox-Simulator"><li><span>9.3.1</span>. ShineRingBox Simulator</li></a>
+                    <a href="#ShineRingBox-Probability"><li><span>9.3.2</span>. ShineRingBox Probability</li></a>
+                </ol><br>
+
+                <a href="#RingLevel"><li><span>9.4</span>. RingLevel</li></a>
+                <ol>
+                    <a href="#RingLevel-Probability"><li><span>9.4.1</span>. RingLevel Probability</li></a>
+                </ol><br>
+            </ol>
+        </li><br>
+    </ol>
+
+    <h2><a href="#StarForce" id="StarForce"><span>1</span>. StarForce</a></h2>
+    <table class="type02">
+        <th>API Name</th>
+        <th>API Url</th>
+        <th>API Parameters</th>
+        <th>API Result</th>
+        <tr>
+            <td>StarForce Simulator</td>
+            <td><a href="/MapleStory/StarForce/StarForce-Simulator" id="StarForce-Simulator">/StarForce-Simulator</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td><strong>StartStar</strong></td>
+                        <td>int<br>(0 <= StartStar <= 24)</td>
+                        <td>0</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WeaponLevel</strong></td>
+                        <td>int</td>
+                        <td>150</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Upgrade_Result</strong></td>
+                        <td>Success, Keep, Destroy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Upgrade_Price</strong></td>
+                        <td>Meso</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Upgrade_Probability</strong></td>
+                        <td>Array - Persent</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>StarForce Price</td>
+            <td><a href="/MapleStory/StarForce/StarForce-Price" id="StarForce-Price">/StarForce-Price</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td><strong>StartStar</strong></td>
+                        <td>int<br>(0 <= StartStar <= 24)</td>
+                        <td>0</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WeaponLevel</strong></td>
+                        <td>int</td>
+                        <td>150</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Price</strong></td>
+                        <td>Meso</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>StarForce Probability</td>
+            <td><a href="/MapleStory/StarForce/StarForce-Probability" id="StarForce-Probability">/StarForce-Probability</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td><strong>StartStar</strong></td>
+                        <td>int<br>(0 <= StartStar <= 24)</td>
+                        <td>0</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Probability</strong></td>
+                        <td>Array - Persent</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table><br>
+
+    <h2><a href="#RoyalStyle" id="RoyalStyle"><span>2</span>. RoyalStyle</a></h2><br>
+    <table class="type02">
+        <th>API Name</th>
+        <th>API Url</th>
+        <th>API Parameters</th>
+        <th>API Result</th>
+        <tr>
+            <td>RoyalStyle Simulator</td>
+            <td><a href="/MapleStory/RoyalStyle/RoyalStyle-Simulator" id="RoyalStyle-Simulator">/RoyalStyle-Simulator</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Name</strong></td>
+                        <td>ITEM NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Probability</strong></td>
+                        <td>ITEM Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>RoyalStyle Probability</td>
+            <td><a href="/MapleStory/RoyalStyle/RoyalStyle-Probability" id="RoyalStyle-Probability">/RoyalStyle-Probability</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Name</strong></td>
+                        <td>ITEM NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Probability</strong></td>
+                        <td>ITEM Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table><br>
+
+    <h2><a href="#MasterPiece" id="MasterPiece"><span>3</span>. MasterPiece</a></h2><br>
+    <table class="type02">
+        <th>API Name</th>
+        <th>API Url</th>
+        <th>API Parameters</th>
+        <th>API Result</th>
+        <tr>
+            <td>MasterPiece Simulator</td>
+            <td><a href="/MapleStory/MasterPiece/MasterPiece-Simulator" id="MasterPiece-Simulator">/MasterPiece-Simulator</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>MasterPiece_Type</td>
+                        <td>String<br>(Red, Black)</td>
+                        <td>Red</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>MasterPiece_Item_Type</td>
+                        <td>String<br>(Cap, Clothes, Cloak_Gloves, Shoes, Weapon)</td>
+                        <td>Cap</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Name</strong></td>
+                        <td>ITEM NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Probability</strong></td>
+                        <td>ITEM Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>MasterPiece Probability</td>
+            <td><a href="/MapleStory/MasterPiece/MasterPiece-Probability" id="MasterPiece-Probability">/MasterPiece-Probability</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>MasterPiece_Type</td>
+                        <td>String<br>(Red, Black)</td>
+                        <td>Red</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>MasterPiece_Item_Type</td>
+                        <td>String<br>(Cap, Clothes, Cloak_Gloves, Shoes, Weapon)</td>
+                        <td>Cap</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Name</strong></td>
+                        <td>ITEM NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Probability</strong></td>
+                        <td>ITEM Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table><br>
+    <h2><a href="#Beauty" id = "Beauty"><span>4</span>. Beauty</a></h2>
+    <ol>
+        <li><h3><a href="#RoyalHair" id = "RoyalHair"><span>4.1</span>. RoyalHair</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>RoyalHair Simulator</td>
+                <td><a href="/MapleStory/Beauty/RoyalHair-Simulator" id="RoyalHair-Simulator">/RoyalHair-Simulator</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td>Sex_Type</td>
+                            <td>String<br>(Man, Woman)</td>
+                            <td>Man</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hair_Name</strong></td>
+                            <td>HAIR NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hair_Probability</strong></td>
+                            <td>HAIR Probability (%)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>RoyalHair Probability</td>
+                <td><a href="/MapleStory/Beauty/RoyalHair-Probability" id="RoyalHair-Probability">/RoyalHair-Probability</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td>Sex_Type</td>
+                            <td>String<br>(Man, Woman)</td>
+                            <td>Man</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hair_Name</strong></td>
+                            <td>HAIR NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hair_Probability</strong></td>
+                            <td>HAIR Probability (%)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+
+        <li><h3><a href="#RoyalPlasticSurgery" id = "RoyalPlasticSurgery"><span>4.2</span>. RoyalPlasticSurgery</a></h3><br></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>RoyalPlasticSurgery Simulator</td>
+                <td><a href="/MapleStory/Beauty/RoyalPlasticSurgery-Simulator" id="RoyalPlasticSurgery-Simulator">/RoyalPlasticSurgery-Simulator</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td>Sex_Type</td>
+                            <td>String<br>(Man, Woman)</td>
+                            <td>Man</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PlasticSurgery_Name</strong></td>
+                            <td>HAIR NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PlasticSurgery_Probability</strong></td>
+                            <td>HAIR Probability (%)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>RoyalPlasticSurgery Probability</td>
+                <td><a href="/MapleStory/Beauty/RoyalPlasticSurgery-Probability" id="RoyalPlasticSurgery-Probability">/RoyalPlasticSurgery-Probability</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td>Sex_Type</td>
+                            <td>String<br>(Man, Woman)</td>
+                            <td>Man</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PlasticSurgery_Name</strong></td>
+                            <td>HAIR NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PlasticSurgery_Probability</strong></td>
+                            <td>HAIR Probability (%)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+    </ol>
+
+    <h2><a href="#GoldApple" id="GoldApple"><span>5</span>. GoldApple</a></h2><br>
+    <table class="type02">
+        <th>API Name</th>
+        <th>API Url</th>
+        <th>API Parameters</th>
+        <th>API Result</th>
+        <tr>
+            <td>GoldApple Simulator</td>
+            <td><a href="/MapleStory/GoldApple/GoldApple-Simulator" id="GoldApple-Simulator">/GoldApple-Simulator</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Name</strong></td>
+                        <td>ITEM NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Probability</strong></td>
+                        <td>ITEM Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>GoldApple Probability</td>
+            <td><a href="/MapleStory/GoldApple/GoldApple-Probability" id="GoldApple-Probability">/GoldApple-Probability</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Name</strong></td>
+                        <td>ITEM NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Probability</strong></td>
+                        <td>ITEM Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table><br>
+
+    <h2><a href="#WispsWonderBerry" id="WispsWonderBerry"><span>6</span>. WispsWonderBerry</a></h2><br>
+    <table class="type02">
+        <th>API Name</th>
+        <th>API Url</th>
+        <th>API Parameters</th>
+        <th>API Result</th>
+        <tr>
+            <td>WispsWonderBerry Simulator</td>
+            <td><a href="/MapleStory/WispsWonderBerry/WispsWonderBerry-Simulator" id="WispsWonderBerry-Simulator">/WispsWonderBerry-Simulator</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Name</strong></td>
+                        <td>ITEM NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Probability</strong></td>
+                        <td>ITEM Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>WispsWonderBerry Probability</td>
+            <td><a href="/MapleStory/WispsWonderBerry/WispsWonderBerry-Probability" id="WispsWonderBerry-Probability">/WispsWonderBerry-Probability</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Name</strong></td>
+                        <td>ITEM NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Probability</strong></td>
+                        <td>ITEM Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table><br>
+
+    <h2><a href="#LunaCrystal" id="LunaCrystal"><span>7</span>. LunaCrystal</a></h2><br>
+    <table class="type02">
+        <th>API Name</th>
+        <th>API Url</th>
+        <th>API Parameters</th>
+        <th>API Result</th>
+        <tr>
+            <td>LunaCrystal Simulator</td>
+            <td><a href="/MapleStory/LunaCrystal/LunaCrystal-Simulator" id="LunaCrystal-Simulator">/LunaCrystal-Simulator</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>LunaCrystal_Type</td>
+                        <td>String<br>(Sweet, Dream)</td>
+                        <td>Sweet</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Name</strong></td>
+                        <td>ITEM NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Probability</strong></td>
+                        <td>ITEM Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>LunaCrystal Probability</td>
+            <td><a href="/MapleStory/LunaCrystal/LunaCrystal-Probability" id="LunaCrystal-Probability">/LunaCrystal-Probability</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>LunaCrystal_Type</td>
+                        <td>String<br>(Sweet, Dream)</td>
+                        <td>Sweet</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Name</strong></td>
+                        <td>ITEM NAME</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item_Probability</strong></td>
+                        <td>ITEM Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table><br>
+
+    <h2><a href="#Cube" id="Cube"><span>8</span>. Cube</a></h2>
+    <table class="type02">
+        <th>API Name</th>
+        <th>API Url</th>
+        <th>API Parameters</th>
+        <th>API Result</th>
+        <tr>
+            <td>Cube Simulator</td>
+            <td><a href="/MapleStory/Cube/Cube-Simulator" id="Cube-Simulator">/Cube-Simulator</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>Cube_Type</td>
+                        <td>String<br>(Red, Black, Addi, Strange, Master, Artisan)</td>
+                        <td>Red</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>Cube_Grade</td>
+                        <td>String<br>(Rare, Epic, Unique, Legendary)</td>
+                        <td>Rare</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>Cube_Item_Type</td>
+                        <td>String<br>(<a href="#Cube-Item-Type">Link</a>)</td>
+                        <td>Weapon</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grade</strong></td>
+                        <td>ITEM GRADE</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Option</strong></td>
+                        <td>Option Name, Option Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Cube Probability</td>
+            <td><a href="/MapleStory/Cube/Cube-Probability" id="Cube-Probability">/Cube-Probability</a></td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                    <tr>
+                        <td>Cube_Type</td>
+                        <td>String<br>(Red, Black, Addi, Strange, Master, Artisan)</td>
+                        <td>Red</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>Cube_Grade</td>
+                        <td>String<br>(Rare, Epic, Unique, Legendary)</td>
+                        <td>Rare</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>Cube_Item_Type</td>
+                        <td>String<br>(<a href="#Cube-Item-Type">Link</a>)</td>
+                        <td>Weapon</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>Cube_Option_Line</td>
+                        <td>Int<br>(0, 1, 2)</td>
+                        <td>0</td>
+                        <td>X</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <th>Name</th>
+                    <th>Result</th>
+                    <tr>
+                        <td><strong>Result</strong></td>
+                        <td>Success, Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Option</strong></td>
+                        <td>Option Name, Option Probability (%)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Cube Item Type</td>
+            <td><a style="color: black;" id="Cube-Item-Type">X</a></td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Weapon</td>
+                        <td>Emblem</td>
+                    </tr>
+                    <tr>
+                        <td>SubWeapon</td>
+                        <td>ForceShield_SoulRing</td>
+                    </tr>
+                    <tr>
+                        <td>Shield</td>
+                        <td>Cap</td>
+                    </tr>
+                    <tr>
+                        <td>Top</td>
+                        <td>Clothes</td>
+                    </tr>
+                    <tr>
+                        <td>Bottom</td>
+                        <td>Shoes</td>
+                    </tr>
+                    <tr>
+                        <td>Gloves</td>
+                        <td>Cloak</td>
+                    </tr>
+                    <tr>
+                        <td>Belt</td>
+                        <td>Shoulder</td>
+                    </tr>
+                    <tr>
+                        <td>Face</td>
+                        <td>Eye</td>
+                    </tr>
+                    <tr>
+                        <td>EarRing</td>
+                        <td>Ring</td>
+                    </tr>
+                    <tr>
+                        <td>Pendant</td>
+                        <td>MachineHeart</td>
+                    </tr>
+                </table>
+            </td>
+            <td>X</td>
+        </tr>
+    </table><br>
+
+    <h2><a href="#TheSeed" id="TheSeed"><span>9</span>. TheSeed</a></h2>
+    <ol>
+        <li><h3><a href="#AliciaRingBox" id = "AliciaRingBox"><span>9.1</span>. AliciaRingBox</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>AliciaRingBox Simulator</td>
+                <td><a href="/MapleStory/TheSeed/AliciaRingBox-Simulator" id="AliciaRingBox-Simulator">/AliciaRingBox-Simulator</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td>Box_Level</td>
+                            <td>Int<br>(1 ~ 10)</td>
+                            <td>1</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Name</strong></td>
+                            <td>ITEM NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Probability</strong></td>
+                            <td>ITEM Probability (%)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ring_Probability</strong></td>
+                            <td>RING Probability (%)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>AliciaRingBox Probability</td>
+                <td><a href="/MapleStory/TheSeed/AliciaRingBox-Probability" id="AliciaRingBox-Probability">/AliciaRingBox-Probability</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Name</strong></td>
+                            <td>ITEM NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Probability</strong></td>
+                            <td>ITEM Probability (%)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+
+        <li><h3><a href="#HideRingBox" id = "HideRingBox"><span>9.2</span>. HideRingBox</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>HideRingBox Simulator</td>
+                <td><a href="/MapleStory/TheSeed/HideRingBox-Simulator" id="HideRingBox-Simulator">/HideRingBox-Simulator</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Name</strong></td>
+                            <td>ITEM NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Probability</strong></td>
+                            <td>ITEM Probability (%)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ring_Probability</strong></td>
+                            <td>RING Probability (%)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>HideRingBox Probability</td>
+                <td><a href="/MapleStory/TheSeed/HideRingBox-Probability" id="HideRingBox-Probability">/HideRingBox-Probability</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Name</strong></td>
+                            <td>ITEM NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Probability</strong></td>
+                            <td>ITEM Probability (%)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+
+        <li><h3><a href="#ShineRingBox" id = "ShineRingBox"><span>9.3</span>. ShineRingBox</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>ShineRingBox Simulator</td>
+                <td><a href="/MapleStory/TheSeed/ShineRingBox-Simulator" id="ShineRingBox-Simulator">/ShineRingBox-Simulator</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Name</strong></td>
+                            <td>ITEM NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Probability</strong></td>
+                            <td>ITEM Probability (%)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ring_Probability</strong></td>
+                            <td>RING Probability (%)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>ShineRingBox Probability</td>
+                <td><a href="/MapleStory/TheSeed/ShineRingBox-Probability" id="ShineRingBox-Probability">/ShineRingBox-Probability</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Name</strong></td>
+                            <td>ITEM NAME</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Item_Probability</strong></td>
+                            <td>ITEM Probability (%)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+
+        <li><h3><a href="#RingLevel" id = "RingLevel"><span>9.4</span>. RingLevel</a></h3></li>
+        <table class="type02">
+            <th>API Name</th>
+            <th>API Url</th>
+            <th>API Parameters</th>
+            <th>API Result</th>
+            <tr>
+                <td>RingLevel Probability</td>
+                <td><a href="/MapleStory/TheSeed/RingLevel-Probability" id="RingLevel-Probability">/RingLevel-Probability</a></td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Required</th>
+                        <tr>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <tr>
+                            <td><strong>Result</strong></td>
+                            <td>Success, Error</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ring_Level</strong></td>
+                            <td>RING LEVEL</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ring_Probability</strong></td>
+                            <td>RING Probability (%)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+    </ol>
+</body>
+</html>
